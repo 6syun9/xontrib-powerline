@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='xontrib-powerline2',
-    version='1.4.0',
+    version='1.5.0',
     description='Powerline for Xonsh shell',
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
@@ -20,9 +20,7 @@ setup(
     classifiers=[
         'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
     packages=['xontrib'],
     package_dir={'xontrib': 'xontrib'},
