@@ -291,9 +291,9 @@ def pl_build_prompt():
         if varname not in __xonsh__.env:
             __xonsh__.env[varname] = __xonsh__.env[defname]
 
-    $PL_EXTRA_SEC = $PL_DEFAULT_EXTRA_SEC if 'PL_EXTRA_SEC' not in ${...} else $PL_EXTRA_SEC
+    $PL_EXTRA_SEC = $PL_DEFAULT_EXTRA_SEC if ('PL_EXTRA_SEC' not in ${...} or isinstance($PL_EXTRA_SEC, str)) else $PL_EXTRA_SEC
     add_section($PL_EXTRA_SEC)
-    if 'PL_COLORS' not in ${...}:
+    if 'PL_COLORS' not in ${...} or isinstance($PL_COLORS, str):
         $PL_COLORS = $PL_DEFAULT_COLORS
     else:
         $PL_DEFAULT_COLORS.update($PL_COLORS)
