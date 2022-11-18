@@ -11,34 +11,35 @@ xontrib-powerline fork by [santagada/xontrib-powerline](https://github.com/santa
 pip install xontrib-powerline2
 ```
 
-And them load it on your ``.xonshrc``
+Activate Powerline2:
 
 ```
 xontrib load powerline2
 ```
 
+We recommend adding that command to to your ``.xonshrc``
 
 # Configuration
 
-There are two variables that can be set, ``$PL_PROMPT`` for main prompt, ``$RPL_PROMPT`` for the right prompt and ``$PL_TOOLBAR`` for the bottom toolbar.
+There are three variables that can be set: ``$PL_PROMPT`` for the main prompt, ``$RPL_PROMPT`` for the right-side prompt and ``$PL_TOOLBAR`` for the bottom toolbar.
 They contain a list of sections that can be used separated by ``>``. The value ``!`` means not to use that prompt.
 
 Examples:
 
 ```
 $PL_PROMPT='cwd>branch'
-$PL_RPROMPT = '!'  # for no toolbar
+$PL_RPROMPT = '!'  # for no right-side prompt
 $PL_TOOLBAR = 'who>virtualenv>branch>cwd>full_proc'
 xontrib load powerline2
 ```
 
-## Bulid prompt
+## Build prompt
 
-If you want to override the settings after `xontrib load`, so commit changes to your prompt execute ``pl_build_prompt`` command.
+If you want to change the prompt settings after `xontrib load`, set the variables and then execute the ``pl_build_prompt`` command.
 
 ## Check config
 
-To see all available sections type ``pl_available_sections`` command.
+To see all available sections execute the ``pl_available_sections`` command.
 
 <img src="https://github.com/6syun9/xontrib-powerline2/raw/master/img/example_available.png" alt="example_available" width="400px" title="example_available">
 
@@ -59,12 +60,12 @@ To see all available sections type ``pl_available_sections`` command.
 |full_rtns| rtns[-1] if \_\_xonsh\_\_.history.rtns else none |
 
 
-If you want to know about `{}` sections, please look [xonsh document](https://xon.sh/tutorial.html#customizing-the-prompt).
+If you want to know about `{}` sections, please review the following [xonsh documentation](https://xon.sh/tutorial.html#customizing-the-prompt).
 
 
 ## Custom sections
 
-We can add customize origin section by `$PL_EXTRA_SEC`.
+We can add custom prompt sections by adding to the `$PL_EXTRA_SEC` `dict`.
 ```
 # func return [format string, text color, background color]
 $PL_EXTRA_SEC = {"user": lambda: [' I'm {user} ', 'BLACK', '#fd971f']}
@@ -76,11 +77,11 @@ xontrib load powerline2
 <img src="https://github.com/6syun9/xontrib-powerline2/raw/master/img/example_custom_sec.png" alt="example" title="custom_sec">
 
 
-## Section's color
+## Section color
 
-We can change section color by `$PL_COLORS`.
+Override section colors by setting `$PL_COLORS`.
 
-`$PL_COLORS` is `dict`. Basically, the value is `(text_color, background_color)`.
+`$PL_COLORS` is a `dict`. Basically, the value is `(text_color, background_color)`.
 
 |key|default value|description|
 |---|---|---|
@@ -99,18 +100,18 @@ We can change section color by `$PL_COLORS`.
 |full_rtns| ("WHITE", "RED", "#444") |There are two types of background depending on the situation|
 
 
-## Multi line prompt
+## Multi-line prompt
 
-We can use multi line prompt by `\n`.
+Create a multi-line prompt by using a newline escape code: `\n`.
 ```
 $PL_PROMPT='\nuser>mode>\ncwd'
 ```
 
 <img src="https://github.com/vaaaaanquish/xontrib-powerline2/raw/master/img/example_multiline.png" alt="example" title="multiline">
 
-## Separate mode
+## Separator mode
 
-We can change the way of separation mode by `$PL_SEP_MODE`.
+Change the separators between prompt sections by setting `$PL_SEP_MODE`.
 
 |mode|separate char|
 |---|---|
@@ -131,7 +132,7 @@ pl_set_mode round
 ```
 <img src="https://github.com/6syun9/xontrib-powerline2/raw/master/img/example_round.png" alt="example" title="round">
 
-If you want to use original separeter, you can use `$PL_ORG_SEP`, `$PL_ORG_SEP_THIN`, `$PL_ORG_RSEP`.
+If you want to use original separator, you can use `$PL_ORG_SEP`, `$PL_ORG_SEP_THIN`, or `$PL_ORG_RSEP`.
 ```
 $PL_ORG_SEP = '■'
 $PL_ORG_SEP_THIN = '□'
@@ -145,7 +146,7 @@ xontrib load powerline2
  - `laerus/cookiecutter-xontrib`: https://github.com/laerus/cookiecutter-xontrib
  - `santagada/xontrib-powerline`: https://github.com/santagada/xontrib-powerline
 
-# Similer Projects
+# Similar Projects
 
  - `jnoortheen/xontrib-powerline3`: https://github.com/jnoortheen/xontrib-powerline3
     - That is also compatible with `ASYNC_PROMPT`!
