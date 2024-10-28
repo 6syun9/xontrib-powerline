@@ -212,17 +212,20 @@ def prompt_builder(var, right=False, sample=False):
             p = []
             sections = []
             for s in pre_sections:
-                if type(s()) == list:
-                    s = Section(*s())
-                if isinstance(s, Section):
-                    sections.append(s)
-                else:
-                    r = s(sample)
-                    if r is not None:
-                        if type(r) == list:
-                            sections += r
-                        else:
-                            sections.append(r)
+                try:
+                    if type(s()) == list:
+                        s = Section(*s())
+                    if isinstance(s, Section):
+                        sections.append(s)
+                    else:
+                        r = s(sample)
+                        if r is not None:
+                            if type(r) == list:
+                                sections += r
+                            else:
+                                sections.append(r)
+                except:
+                    pass
 
             size = len(sections)
             for i, sec in enumerate(sections):
